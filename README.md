@@ -1,1 +1,1 @@
-# Integraci-n-Openpay-en-.Net-MVC
+# Integracion Openpay cards .Net
