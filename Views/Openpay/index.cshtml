@@ -1,0 +1,149 @@
+@{
+	ViewData["Title"] = "Openpay";
+}
+
+<h2>Implementación de la libreria Openpay</h2>
+
+<div class="contenedor">
+
+
+	<div id="errorFormulario">
+		<span class="span_error">
+		</span>
+	</div>
+
+	<!-- Tarjeta -->
+	<section class="tarjeta" id="tarjeta">
+		<div class="delantera">
+			<div class="logo-marca" id="logo-marca">
+			</div>
+			<img src="/img/chip-tarjeta.png" class="chip" alt="">
+			<div class="datos">
+				<div class="grupo" id="numero">
+					<p class="label">Número Tarjeta</p>
+					<p class="numero">#### #### #### ####</p>
+				</div>
+				
+				<div class="flexbox">
+					<div class="grupo" id="nombre">
+						<p class="label">Nombre Tarjeta</p>
+						<p class="nombre">XXXX XXX</p>
+					</div>
+
+					<div class="grupo" id="expiracion">
+						<p class="label">Expiracion</p>
+						<p class="expiracion"><span class="mes">MM</span> / <span class="year">AA</span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="trasera">
+			<div class="barra-magnetica"></div>
+			<div class="datos">
+				<div class="grupo" id="firma">
+					<p class="label">Firma</p>
+					<div class="firma">
+						<p></p>
+					</div>
+				</div>
+				<div class="grupo" id="ccv">
+					<p class="label">CCV</p>
+					<p class="ccv"></p>
+				</div>
+			</div>
+			<p class="leyenda">Es un gusto compartir esta Implementación con ustedes, espero que les sea de mucha ayuda
+				en sus proyectos.</p>
+			<a href="#" class="link-banco">www.openpay.pe</a>
+		</div>
+	</section>
+
+	<!-- Contenedor Boton Abrir Formulario -->
+	<div class="contenedor-btn">
+		<button class="btn-abrir-formulario" id="btn-abrir-formulario">
+			<i class="fas fa-plus">-</i>
+		</button>
+	</div>
+
+
+	<!-- Formulario -->
+	<form  id="formulario-tarjeta" name="formulario-tarjeta" class="formulario-tarjeta">
+		<div class="grupo">
+			<label for="inputTarjeta">Número Tarjeta</label>
+			<input type="text" id="inputNumero" data-openpay-card="card_number" maxlength="16" autocomplete="off">
+		</div>
+		<div class="grupo">
+			<label for="inputNombre">Nombre</label>
+			<input type="text" id="inputNombre" data-openpay-card="holder_name" maxlength="19" autocomplete="off">
+		</div>
+		<div class="flexbox">
+			<div class="grupo expira">
+				<label for="selectMes">Expiracion</label>
+				<div class="flexbox">
+					<div class="grupo-select">
+						<select name="mes" id="selectMes" data-openpay-card="expiration_month">
+							<option disabled selected>Mes</option>
+						</select>
+						<i class="fas fa-angle-down"></i>
+					</div>
+					<div class="grupo-select">
+						<select name="year" id="selectYear" data-openpay-card="expiration_year">
+							<option disabled selected>Año</option>
+						</select>
+						<i class="fas fa-angle-down"></i>
+					</div>
+				</div>
+			</div>
+
+			<div class="grupo ccv">
+				<label for="inputCCV">CCV</label>
+				<input type="text" id="inputCCV" data-openpay-card="cvv2" maxlength="4">
+			</div>
+		</div>
+
+		<label for="">Dirección</label>
+		<div class="formularioDireccion">
+			<label for="Street">Calle:</label>
+			<input type="text" data-openpay-card-address="line1" maxlength="19" autocomplete="off">
+		</div>
+
+		<div class="grupo">
+			<label for="">Referencias</label>
+			<input type="text" data-openpay-card-address="line3" autocomplete="off">
+		</div>
+
+		<div class="flexbox">
+
+			<div class="grupo">
+				<label for="">Teléfono:</label>
+				<input type="text" data-openpay-card-address="line2" maxlength="10"autocomplete="off">
+			</div>
+
+			<div class="grupo">
+				<label for="">Código postal:</label>
+				<input type="text" data-openpay-card-address="postal_code" maxlength="6"autocomplete="off">
+			</div>
+
+		</div>
+
+		
+
+			<div class="City">
+				<label for="">Ciudad:</label>
+				<input type="text" data-openpay-card-address="city" autocomplete="off">
+			</div>
+
+			<div class="State">
+				<label for="">País:</label>
+				<input type="text" data-openpay-card-address="state" autocomplete="off">
+			</div>
+
+			<div class="codigoPais">
+				<label for="">Código del país:</label>
+				<input type="text" data-openpay-card-address="country_code" value="PE">
+			</div>
+
+
+		<input id="makeRequestCard" type="button" value="Pagar">
+	</form>
+</div>

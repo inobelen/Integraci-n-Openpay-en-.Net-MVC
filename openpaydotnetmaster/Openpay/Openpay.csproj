@@ -1,0 +1,126 @@
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{29A0AB02-4D5D-42F7-8F6E-A10BAD672DF0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Openpay</RootNamespace>
+    <AssemblyName>Openpay</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile/>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System"/>
+    <Reference Include="System.Core"/>
+    <Reference Include="System.Web"/>
+    <Reference Include="System.Xml.Linq"/>
+    <Reference Include="System.Data.DataSetExtensions"/>
+    <Reference Include="Microsoft.CSharp"/>
+    <Reference Include="System.Data"/>
+    <Reference Include="System.Xml"/>
+    <Reference Include="System.Configuration"/>
+    <Reference Include="System.Numerics"/>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CheckoutService.cs"/>
+    <Compile Include="Countries.cs"/>
+    <Compile Include="Entities\Checkout.cs"/>
+    <Compile Include="Entities\CodiOptions.cs"/>
+    <Compile Include="Entities\Merchant.cs"/>
+    <Compile Include="Entities\Request\CheckoutRequest.cs"/>
+    <Compile Include="Entities\Request\TokenRequest.cs"/>
+    <Compile Include="Entities\Request\UpdateCheckoutRequest.cs"/>
+    <Compile Include="Entities\Token.cs"/>
+    <Compile Include="MerchantService.cs"/>
+    <Compile Include="Entities\CardPoints.cs"/>
+    <Compile Include="Entities\Store.cs"/>
+    <Compile Include="Entities\OpenpayFeesSummary.cs"/>
+    <Compile Include="Entities\Request\PaginationParams.cs"/>
+    <Compile Include="OpenpayFeesService.cs"/>
+    <Compile Include="SubscriptionService.cs"/>
+    <Compile Include="PlanService.cs"/>
+    <Compile Include="Entities\Request\FeeRequest.cs"/>
+    <Compile Include="PayoutService.cs"/>
+    <Compile Include="ChargeService.cs"/>
+    <Compile Include="BankAccountService.cs"/>
+    <Compile Include="Entities\Request\PayoutRequest.cs"/>
+    <Compile Include="Entities\Request\TransferRequest.cs"/>
+    <Compile Include="FeeService.cs"/>
+    <Compile Include="TokenService.cs"/>
+    <Compile Include="TransferService.cs"/>
+    <Compile Include="Entities\Request\CaptureRequest.cs"/>
+    <Compile Include="Entities\Request\RefundRequest.cs"/>
+    <Compile Include="Entities\Request\ChargeRequest.cs"/>
+    <Compile Include="Entities\Request\SearchParams.cs"/>
+    <Compile Include="Entities\OpenpayResourceObject.cs"/>
+    <Compile Include="OpenpayResourceService.cs"/>
+    <Compile Include="CardService.cs"/>
+    <Compile Include="CustomerService.cs"/>
+    <Compile Include="Entities\Address.cs"/>
+    <Compile Include="Entities\PaymentMethod.cs"/>
+    <Compile Include="Entities\Transaction.cs"/>
+    <Compile Include="Entities\Subscription.cs"/>
+    <Compile Include="Entities\Plan.cs"/>
+    <Compile Include="Entities\BankAccount.cs"/>
+    <Compile Include="Entities\Card.cs"/>
+    <Compile Include="Entities\Customer.cs"/>
+    <Compile Include="Entities\JsonObject.cs"/>
+    <Compile Include="OpenpayAPI.cs"/>
+    <Compile Include="OpenpayHttpClient.cs"/>
+    <Compile Include="OpenpayException.cs"/>
+    <Compile Include="Properties\AssemblyInfo.cs"/>
+    <Compile Include="Utils\ParameterBuilder.cs"/>
+    <Compile Include="Entities\Webhook.cs"/>
+    <Compile Include="Utils\UrlUtils.cs"/>
+    <Compile Include="WebhookService.cs"/>
+    <Compile Include="Entities\ExchangeRate.cs"/>
+    <Compile Include="Entities\PayoutSummary.cs"/>
+    <Compile Include="PayoutReportService.cs"/>
+    <Compile Include="OpenpayGenericService.cs"/>
+    <Compile Include="Entities\Request\PayoutReportDetailSearchParams.cs"/>
+    <Compile Include="Entities\DeferralPayments.cs"/>
+    <Compile Include="Entities\UseCardPointsType.cs"/>
+    <Compile Include="Entities\PointsBalance.cs"/>
+    <Compile Include="Entities\PointsType.cs"/>
+    <Compile Include="Entities\Affiliation.cs"/>
+    <Compile Include="Entities\TransactionStatus.cs"/>
+    <Compile Include="Entities\Gateway.cs"/>
+    <Compile Include="Entities\Provider.cs"/>
+    <Compile Include="Entities\Internationalization.cs"/>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1"/>
+  </ItemGroup>
+</Project>
